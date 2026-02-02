@@ -9,11 +9,13 @@ public class moveTarget : MonoBehaviour
     private float x_max = (float)3.7;
     private float y_min = (float)3.5;
     private float y_max = (float)8;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Ball"))
         {
             MoveTarget();
+            GameManager.Instance.AddPoint();
 
         }
         
