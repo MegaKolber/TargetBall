@@ -32,6 +32,7 @@ public class Scoreboard : MonoBehaviour
             // end round here if you want
         }
 
+
         UpdateTimeText();
     }
 

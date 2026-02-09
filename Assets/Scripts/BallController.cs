@@ -54,7 +54,8 @@ public class BallController : MonoBehaviour
     {
         Vector3 dir = racketForward;
 
-        dir.y = 0f;
+        dir.y = (dir.y * .2f) + .3f;
+        dir.x *= .3f;
 
         return dir.normalized;
     }
@@ -88,10 +89,10 @@ public class BallController : MonoBehaviour
 
     void ReturnTowardPlayer()
     {
-        Vector3 target = playerHead.position + playerHead.forward * 1.2f + Vector3.up * 0.3f;
+        Vector3 target = playerHead.position + playerHead.forward * 1.2f;
         Vector3 dir = (target - transform.position).normalized;
 
-        dir.y -= 0.2f;
+        dir.y -= 0.3f;
 
         rb.velocity = dir.normalized * rallySpeed;
         rb.angularVelocity = Vector3.zero;

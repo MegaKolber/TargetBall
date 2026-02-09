@@ -25,7 +25,11 @@ public class GameManager : MonoBehaviour
     public void AddPoint()
     {
         score++;
-        Debug.Log(score);
+    }
+
+    public int GetScore()
+    {
+        return score;
     }
     
     // Update is called once per frame

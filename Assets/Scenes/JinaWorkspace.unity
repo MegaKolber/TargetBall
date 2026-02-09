@@ -681,7 +681,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &497734598
 Transform:
   m_ObjectHideFlags: 0
@@ -690,13 +690,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 497734597}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.26053652, y: -0.7235044, z: -0.5919694, w: -0.24131805}
+  m_LocalRotation: {x: 0.27059808, y: -0.6532815, z: 0.6532815, w: 0.27059808}
   m_LocalPosition: {x: -0.423, y: 0.141, z: 0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 996073710}
-  m_LocalEulerAnglesHint: {x: -79.213, y: 167.431, z: -389.195}
+  m_LocalEulerAnglesHint: {x: 90, y: -45, z: 90}
 --- !u!136 &497734599
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1450,18 +1450,47 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5afd7025b1b2f8141affb1473d31e470, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Racket
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5afd7025b1b2f8141affb1473d31e470, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1711942667}
   m_SourcePrefab: {fileID: 100100000, guid: 5afd7025b1b2f8141affb1473d31e470, type: 3}
 --- !u!4 &1700971741 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5afd7025b1b2f8141affb1473d31e470, type: 3}
   m_PrefabInstance: {fileID: 1700971740}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1711942664 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 5afd7025b1b2f8141affb1473d31e470, type: 3}
+  m_PrefabInstance: {fileID: 1700971740}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1711942667
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711942664}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.49635223, y: 0.88850445, z: 0.068952076}
+  m_Center: {x: -0.0000009790871, y: -0.19324109, z: 0.0345468}
 --- !u!1001 &1954259184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2094,7 +2123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHead: {fileID: 1354258957}
   spawnDistance: 1
-  spawnHeight: 1
+  spawnHeight: 1.5
   rallySpeed: 7
 --- !u!1 &2114719023
 GameObject:
