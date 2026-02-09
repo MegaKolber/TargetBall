@@ -8,12 +8,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
 
     public static GameManager Instance;
-    public TextMeshProUGUI countText;
 
     public int score = 0;
     void Start()
     {
-        SetCountText();
+  
     }
     private void Awake()
     {
@@ -26,12 +25,9 @@ public class GameManager : MonoBehaviour
     public void AddPoint()
     {
         score++;
-        SetCountText();
+        Debug.Log(score);
     }
-    void SetCountText()
-    {
-        countText.text = "Count: " + score.ToString();
-    }
+    
     // Update is called once per frame
     void Update()
     {
