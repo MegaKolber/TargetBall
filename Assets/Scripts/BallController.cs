@@ -1,4 +1,5 @@
 using UnityEngine;
+using Valve.VR;
 
 public class BallController : MonoBehaviour
 {
@@ -6,6 +7,9 @@ public class BallController : MonoBehaviour
     public float spawnDistance = 1.8f;
     public float spawnHeight = 0.2f;
     public float rallySpeed = 7f;
+    [Header("SteamVR Reset Input")]
+    public SteamVR_Action_Boolean resetAction;
+    public SteamVR_Input_Sources resetHand = SteamVR_Input_Sources.RightHand;
 
     Rigidbody rb;
 
@@ -17,6 +21,13 @@ public class BallController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         SpawnInFrontOfPlayer();
         EnterWaitingState();
+    }
+    private void Update()
+    {
+        if(resetAction != null && resetAction.GetStateDown(resetHand))
+        {
+            ResetBall();
+        }
     }
 
     void SpawnInFrontOfPlayer()
@@ -92,9 +103,19 @@ public class BallController : MonoBehaviour
         Vector3 target = playerHead.position + playerHead.forward * 1.2f;
         Vector3 dir = (target - transform.position).normalized;
 
-        dir.y -= 0.3f;
+        dir.y -= 0.4f;
 
         rb.velocity = dir.normalized * rallySpeed;
         rb.angularVelocity = Vector3.zero;
+    }
+
+    void ResetBall()
+    {
+        rb.constraints = RigidbodyConstraints.None;
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        SpawnInFrontOfPlayer();
+
+        EnterWaitingState();
     }
 }
