@@ -6,6 +6,7 @@ public class BallController : MonoBehaviour
     public float spawnDistance = 1.8f;
     public float spawnHeight = 0.2f;
     public float rallySpeed = 7f;
+    bool timerStarted = false;
 
     Rigidbody rb;
 
@@ -69,9 +70,19 @@ public class BallController : MonoBehaviour
             Vector3 forward = col.transform.forward;
 
             if (state == BallState.WAITING)
+            {
                 EnterRallyState(forward);
+
+                if (!timerStarted)
+                {
+                    FindObjectOfType<Scoreboard>().StartTimer();
+                    timerStarted = true;
+                }
+            }
             else
+            {
                 ApplyPlayerHit(forward);
+            }
         }
 
         if (col.collider.CompareTag("Wall") && state == BallState.RALLY)
