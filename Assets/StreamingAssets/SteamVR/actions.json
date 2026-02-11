@@ -50,10 +50,6 @@
       "type": "boolean"
     },
     {
-      "name": "/actions/default/in/ResetBall",
-      "type": "boolean"
-    },
-    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },

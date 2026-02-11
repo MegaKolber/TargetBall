@@ -23,7 +23,6 @@ public class Scoreboard : MonoBehaviour
     void Update()
     {
         if (!timerRunning) return;
-        score = GameManager.Instance.GetScore();
 
         timeRemaining -= Time.deltaTime;
         if (timeRemaining <= 0f)
