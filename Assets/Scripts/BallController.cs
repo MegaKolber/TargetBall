@@ -11,6 +11,7 @@ public class BallController : MonoBehaviour
     public SteamVR_Action_Boolean resetAction;
     public SteamVR_Input_Sources resetHand = SteamVR_Input_Sources.RightHand;
     bool timerStarted = false;
+    public Transform racketNetForward;
 
     Rigidbody rb;
 
@@ -29,6 +30,8 @@ public class BallController : MonoBehaviour
         {
             ResetBall();
         }
+
+
     }
 
     void SpawnInFrontOfPlayer()
@@ -66,8 +69,8 @@ public class BallController : MonoBehaviour
     {
         Vector3 dir = racketForward;
 
-        dir.y = (dir.y * .2f) + .3f;
-        dir.x *= .3f;
+        dir.y = (dir.y * .1f) ;
+        dir.x *= .1f;
 
         return dir.normalized;
     }
@@ -78,7 +81,7 @@ public class BallController : MonoBehaviour
 
         if (col.collider.CompareTag("Racket"))
         {
-            Vector3 forward = col.transform.forward;
+            Vector3 forward = racketNetForward.forward;
 
             if (state == BallState.WAITING) {
                 EnterRallyState(forward);
@@ -110,10 +113,10 @@ public class BallController : MonoBehaviour
 
     void ReturnTowardPlayer()
     {
-        Vector3 target = playerHead.position + playerHead.forward * 1.2f;
+        Vector3 target = playerHead.position;
         Vector3 dir = (target - transform.position).normalized;
 
-        dir.y -= 0.4f;
+        dir.y = (dir.y * .3f) - .3f;
 
         rb.velocity = dir.normalized * rallySpeed;
         rb.angularVelocity = Vector3.zero;

@@ -6,6 +6,7 @@ public class Scoreboard : MonoBehaviour
     public TextMeshPro timeText;
     public TextMeshPro scoreText;
     public TextMeshPro bestText;
+    public static Scoreboard Instance;
 
     [Header("Timer")]
     public float roundTime = 60f;
@@ -31,8 +32,9 @@ public class Scoreboard : MonoBehaviour
 
             if (timeRemaining <= 0f)
             {
-                timeRemaining = 0f;
-                timerRunning = false;
+                timeRemaining = 60f;
+                timerRunning = true;
+                GameManager.Instance.SetScore(0);
                 // end round logic can go here later
             }
         }

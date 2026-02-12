@@ -31,7 +31,12 @@ public class GameManager : MonoBehaviour
     {
         return score;
     }
-    
+    public int SetScore(int value)
+    {
+        score = value;
+        return score;
+    }
+
     // Update is called once per frame
     void Update()
     {
