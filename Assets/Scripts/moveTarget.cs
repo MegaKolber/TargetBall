@@ -7,7 +7,7 @@ public class moveTarget : MonoBehaviour
     // Start is called before the first frame update
     private float x_min = (float)-3.5;
     private float x_max = (float)3.7;
-    private float y_min = (float)3.5;
+    private float y_min = (float)2.5;
     private float y_max = (float)8;
 
     private void OnTriggerEnter(Collider other)

@@ -4,6 +4,8 @@ using Valve.VR;
 public class BallController : MonoBehaviour
 {
     public Transform playerHead;
+    private AudioSource source;
+    public AudioClip clip;
     public float spawnDistance = 1.8f;
     public float spawnHeight = 0.2f;
     public float rallySpeed = 7f;
@@ -23,6 +25,7 @@ public class BallController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         SpawnInFrontOfPlayer();
         EnterWaitingState();
+        source = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -81,6 +84,7 @@ public class BallController : MonoBehaviour
 
         if (col.collider.CompareTag("Racket"))
         {
+            source.PlayOneShot(clip);
             Vector3 forward = racketNetForward.forward;
 
             if (state == BallState.WAITING) {
@@ -101,6 +105,7 @@ public class BallController : MonoBehaviour
         if (col.collider.CompareTag("Wall") && state == BallState.RALLY)
         {
             ReturnTowardPlayer();
+            source.PlayOneShot(clip);
         }
     }
 
@@ -116,11 +121,13 @@ public class BallController : MonoBehaviour
         Vector3 target = playerHead.position;
         Vector3 dir = (target - transform.position).normalized;
 
-        dir.y = (dir.y * .3f) - .3f;
+        dir.y = (dir.y * .3f);
 
         rb.velocity = dir.normalized * rallySpeed;
         rb.angularVelocity = Vector3.zero;
     }
+
+
 
     void ResetBall()
     {
